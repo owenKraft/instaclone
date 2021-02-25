@@ -1,23 +1,28 @@
 {
   "files": {
-    "main.css": "/instaclone/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/instaclone/static/js/main.0db00dbf.chunk.js",
-    "main.js.map": "/instaclone/static/js/main.0db00dbf.chunk.js.map",
-    "runtime-main.js": "/instaclone/static/js/runtime-main.5431263b.js",
-    "runtime-main.js.map": "/instaclone/static/js/runtime-main.5431263b.js.map",
-    "static/js/2.36b46598.chunk.js": "/instaclone/static/js/2.36b46598.chunk.js",
-    "static/js/2.36b46598.chunk.js.map": "/instaclone/static/js/2.36b46598.chunk.js.map",
-    "static/js/3.429180a0.chunk.js": "/instaclone/static/js/3.429180a0.chunk.js",
-    "static/js/3.429180a0.chunk.js.map": "/instaclone/static/js/3.429180a0.chunk.js.map",
+    "main.css": "/instaclone/static/css/main.7c842a66.chunk.css",
+    "main.js": "/instaclone/static/js/main.a31ca669.chunk.js",
+    "main.js.map": "/instaclone/static/js/main.a31ca669.chunk.js.map",
+    "runtime-main.js": "/instaclone/static/js/runtime-main.faf298cc.js",
+    "runtime-main.js.map": "/instaclone/static/js/runtime-main.faf298cc.js.map",
+    "static/js/2.c5763ad5.chunk.js": "/instaclone/static/js/2.c5763ad5.chunk.js",
+    "static/js/2.c5763ad5.chunk.js.map": "/instaclone/static/js/2.c5763ad5.chunk.js.map",
     "index.html": "/instaclone/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/instaclone/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.36b46598.chunk.js.LICENSE.txt": "/instaclone/static/js/2.36b46598.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/instaclone/static/media/logo.6ce24c58.svg"
+    "static/css/main.7c842a66.chunk.css.map": "/instaclone/static/css/main.7c842a66.chunk.css.map",
+    "static/js/2.c5763ad5.chunk.js.LICENSE.txt": "/instaclone/static/js/2.c5763ad5.chunk.js.LICENSE.txt",
+    "static/media/apollo_11.85ee5b69.jpg": "/instaclone/static/media/apollo_11.85ee5b69.jpg",
+    "static/media/comment_icon.64395e20.png": "/instaclone/static/media/comment_icon.64395e20.png",
+    "static/media/emoji_icon.5d005405.png": "/instaclone/static/media/emoji_icon.5d005405.png",
+    "static/media/goku_frieza_post.3af62f77.jpg": "/instaclone/static/media/goku_frieza_post.3af62f77.jpg",
+    "static/media/goku_profile.89da3387.jpg": "/instaclone/static/media/goku_profile.89da3387.jpg",
+    "static/media/heart_icon.382a3705.png": "/instaclone/static/media/heart_icon.382a3705.png",
+    "static/media/profile_icon.697fdcd2.png": "/instaclone/static/media/profile_icon.697fdcd2.png",
+    "static/media/share_icon.0980be89.png": "/instaclone/static/media/share_icon.0980be89.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5431263b.js",
-    "static/js/2.36b46598.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.0db00dbf.chunk.js"
+    "static/js/runtime-main.faf298cc.js",
+    "static/js/2.c5763ad5.chunk.js",
+    "static/css/main.7c842a66.chunk.css",
+    "static/js/main.a31ca669.chunk.js"
   ]
 }
