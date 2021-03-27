@@ -257,7 +257,7 @@ button {
 .post {
   margin: auto;
   display: block;
-  min-width: 57.75%;
+  /* min-width: 57.75%; */
   max-width: 600px;
   /* width: 600px; */
   background-color: white;

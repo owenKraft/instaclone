@@ -6,8 +6,8 @@ import Emoji from 'a11y-react-emoji'
 
 const ProfileDropdown = (props) => {
     let isDisplayed = props.isDisplayed || false
-    const { loginWithRedirect } = useAuth0();
-    const { logout } = useAuth0();
+    const { loginWithRedirect, logout } = useAuth0();
+    // const { logout } = useAuth0();
     const { user, isAuthenticated, isLoading } = useAuth0();
 
     let loginText
@@ -19,9 +19,10 @@ const ProfileDropdown = (props) => {
 
     const handleLoginClick = () => {
         if(isAuthenticated){
-            logout({ returnTo: window.location.origin })
+            // logout({ returnTo: window.location.origin })
+            logout({ returnTo: "https://owenkraft.github.io/instaclone/#/" })
         } else {
-            loginWithRedirect()
+            loginWithRedirect({ returnTo: "https://owenkraft.github.io/instaclone/#/" })
         }
     }
 
