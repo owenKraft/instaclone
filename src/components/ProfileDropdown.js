@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react';
-import ProfileInfo from './Test/ProfileInfo'
+import ProfileInfo from './ProfileInfo'
 import Emoji from 'a11y-react-emoji'
 
 
@@ -35,7 +35,9 @@ const ProfileDropdown = (props) => {
             }
 
             {isAuthenticated && (
-                <ProfileInfo />
+                <ProfileInfo 
+                    userMetadata = {props.userMetadata}
+                />
             )}
 
             <button onClick={() => handleLoginClick()}>{loginText}</button>

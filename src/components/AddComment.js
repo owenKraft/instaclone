@@ -1,8 +1,12 @@
 import React from 'react'
+import firebase from 'firebase'
 import EmojiIcon from '../resources/icons/emoji_icon.png'
+import AddCommentTextBox from './AddCommentTextBox'
 import { EmojiButton } from '@joeattardi/emoji-button';
 
 const AddComment = (props) => {
+    const postsRef = firebase.database().ref('posts')
+    const id = props.id
     const picker = new EmojiButton()
     let emoji
     let textBox
@@ -11,6 +15,12 @@ const AddComment = (props) => {
         emoji = selection.emoji
 
         textBox.innerText += emoji
+
+        const emojiCheck = /\p{Emoji}/u.test(textBox.innerText)
+        const siblingPostButton = textBox.nextElementSibling
+        if(emojiCheck){
+            siblingPostButton.classList.remove("disabled")
+        }
     });
 
     const selectTextArea = (e) => {
@@ -24,10 +34,10 @@ const AddComment = (props) => {
     }
 
     const updateComments = (e) => {
-        const username = "piccolo"
+        const username = props.userMetadata.user_metadata.username
         const comment = e.target.previousElementSibling.innerText
         const newComment = {username: username, comment: comment}
-        const commentsCopy = [...props.comments]
+        const commentsCopy = [...props.getComments()]
         commentsCopy.push(newComment)
 
         return commentsCopy
@@ -38,22 +48,25 @@ const AddComment = (props) => {
     }
 
     const handlePostClick = (e) => {
-        // e.preventDefault(e)
-
+        e.preventDefault()
         const updatedComments = updateComments(e)
-
-        props.submitComment(updatedComments)
+        
         clearCommentText(e)
         e.target.classList.add("disabled")
+        
+        postsRef.child(id).update({'comments' : updatedComments})
+        .then(props.setComments(props.getComments()))
     }
 
     const handleTextInput = (e) => {
         const text = e.target.innerText
+        const emojiCheck = /\p{Emoji}/u.test(e.target.innerText)
         const siblingPostButton = e.target.nextElementSibling
+        console.log(emojiCheck)
 
-        if(text !== ""){
+        if(text !== "" || emojiCheck){
             siblingPostButton.classList.remove("disabled")
-        } else if(text === ""){
+        } else if(text === "" && !emojiCheck){
             siblingPostButton.classList.add("disabled")
         }
     }
@@ -61,9 +74,11 @@ const AddComment = (props) => {
     return (
         <div className="add-comment-area">
             <form className="add-comment-form">
-                <input id="emoji-trigger" type="image" className="emoji-icon" src={EmojiIcon} alt="add-emoji" onClick={e => handleEmojiClick(e)}></input>
-
-                <div className="add-comment-text-area wrap" placeholder="Add a comment..." onInput={(e) => handleTextInput(e)} contentEditable></div>
+                <input type="image" className="emoji-icon" src={EmojiIcon} alt="add-emoji" onClick={e => handleEmojiClick(e)}></input>
+                
+                <AddCommentTextBox 
+                    handleTextInput = {handleTextInput}
+                />
 
                 <input type="submit" className="submit-comment disabled" value="Post" onClick={e => handlePostClick(e)}></input>
             </form>

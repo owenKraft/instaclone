@@ -20,6 +20,8 @@ ReactDOM.render(
       domain="dev-koqpz026.us.auth0.com"
       clientId="6I521eyL6oLif8nNpjGWPf3GXJS5JNNl"
       redirectUri={window.location.origin}
+      audience="https://dev-koqpz026.us.auth0.com/api/v2/"
+      scope="read:current_user update:current_user_metadata"
     >
       <App />
     </Auth0Provider>

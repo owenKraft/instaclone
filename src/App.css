@@ -15,6 +15,13 @@ textarea {
   border: 0;
 }
 
+button {
+  color: #0095f6;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -76,8 +83,6 @@ textarea {
   padding-top: 16px;
 }
 
-
-
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 * {
@@ -88,6 +93,38 @@ textarea {
 
 .app {
   background-color: var(--color-snow);
+}
+
+.shimmer-wrapper {
+  width: 0px;
+  animation: fullView 0.5s forwards linear;
+}
+
+@keyframes fullView {
+  100% {
+    width: 100%;
+  }
+}
+
+.shimmer {
+  animation : shimmer 2s infinite;
+  background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+
+.break {
+  flex-basis: 100%;
+  height: 0;
 }
 
 .header {
@@ -108,14 +145,12 @@ textarea {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-width: 57.75%;
-  max-width: 600px;
+  width: 600px;
 }
 
-.header-affordances {
-  display: flex;
+.profile-area {
   position: relative;
-  right: 0;
+  display: inline-block;
 }
 
 .header-icon {
@@ -125,11 +160,16 @@ textarea {
 
 .profile-icon {
   height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 .profile-dropdown {
   position: absolute;
-  right: 0%;
+  right: 0;
+  display: block;
   background-color: rgba(255,255,255,1);
   border: 0;
   border-radius: 6px;
@@ -138,12 +178,15 @@ textarea {
   min-width: 200px;
 }
 
+.profile-dropdown * {
+  width: 100%;
+}
+
 .profile-dropdown button {
   background-color: rgba(255,255,255,1);
   border: 0;
   border-top: 1px solid lightgray;
   padding: 8px;
-  width: 100%;
   max-height: 33px;
   text-align: left;
   font-weight: bold;
@@ -155,6 +198,12 @@ textarea {
 
 .profile-info {
   padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-info * {
+  width: 100%;
 }
 
 .profile-icon-name {
@@ -169,7 +218,6 @@ textarea {
 }
 
 .profile-name {
-  padding-left: 8px;
   font-weight: bold;
 }
 
@@ -197,16 +245,24 @@ textarea {
 }
 
 .body {
+  margin-top: calc(var(--header-height-px)*2);
+  justify-content: center;
+}
+
+.body .submit-post {
   margin-top: var(--header-height-px);
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 .post {
-  width: 600px;
+  margin: auto;
+  display: block;
+  min-width: 57.75%;
+  max-width: 600px;
+  /* width: 600px; */
   background-color: white;
   border: lightgray 1px solid;
+  margin-bottom: 0;
   margin-top: 60px;
 }
 
@@ -232,10 +288,16 @@ textarea {
 
 .profile-photo {
   height: 32px;
+  width: 32px;
   border-radius: 50%;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 .post-image {
+  object-position: 50% 50%;
+  object-fit: cover;
+  max-height: 600px;
   width: 100%;
 }
 
@@ -311,12 +373,11 @@ textarea {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding-left: 16px;
 }
 
 .add-comment-text-area {
   padding: 4px 8px;
-  /* min-height: var(--add-comment-box-height-px); */
   max-height: fit-content;
   width: 100%;
   max-width: 100%;
@@ -324,6 +385,7 @@ textarea {
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
+  text-align: left;
 }
 
 .add-comment-text-area:focus {
@@ -344,14 +406,16 @@ textarea {
 }
 
 .submit-comment {
-  padding-left: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
   color: #0095f6;
   font-weight: bold;
   height: var(--add-comment-box-height-px);
+  /* width: 100%; */
 }
 
 .disabled {
-  opacity: .3;
+  color: rgba(0, 149, 246,0.3);
   pointer-events: none;
 }
 
@@ -359,4 +423,193 @@ textarea {
   height: 30px;
   width: 30px;
   margin: 8px 16px 8px 0;
+}
+
+.submit-post {
+  display: flex;
+}
+
+.submit-post img {
+  max-width: 64.17%;
+}
+
+.add-post-info {
+  min-width: 35.83%;
+  width: 335px;
+}
+
+.submit-post form{
+  padding: 16px;
+}
+
+.submit-new-post-input, .add-username-input {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #8E8E8E;
+  text-align: left;
+}
+
+.submit-new-post-input {
+  width: 100%;
+}
+
+.submit-new-post-input:focus, .add-username-input:focus {
+  outline: none;
+}
+
+.submit-new-post-input::placeholder, .add-username-input::placeholder {
+  font-size: 1rem;
+  color: #8E8E8E;
+}
+
+#caption {
+  min-height: 55.5px;
+  font-size: 1rem;
+}
+
+#url {
+  margin-bottom: 4px;
+}
+
+#url-error {
+  height: 8px;
+  font-size: 12px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.submit-new-post-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-new-post-btn, .add-username-btn {
+  color: #0095f6;
+  font-weight: bold;
+}
+
+.submit-new-post-btn {
+  width: stretch;
+}
+
+.preview-image {
+  object-position: 50% 50%;
+  object-fit: contain;
+  max-height: 600px;
+}
+
+.username-modal, .welcome-modal {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--header-height-px);
+  justify-content: center;
+  align-items: center;
+}
+
+.username-modal > * {
+  margin-bottom: 16px;
+}
+
+.username-modal h1, form, .welcome-modal h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.username-modal p {
+  /* width: 40%; */
+  text-align: center;
+}
+
+.username-modal form {
+  width: 40%;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.welcome-modal * {
+  margin-bottom: 16px;;
+}
+
+.welcome-modal input {
+  max-width: 50%;
+}
+
+.welcome-modal button {
+  /* margin-bottom: 0px; */
+  display: block;
+}
+
+.welcome-modal .break {
+  margin-bottom: 0px;
+}
+
+.profile-image-preview {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
+.add-username-input {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+.btn-skip {
+  display: inline-block;
+  color: #8E8E8E;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /* padding-top: 20%; Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10%;
+  /* border: 1px solid #888; */
+  max-width: 935px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.loading {
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
