@@ -22,7 +22,8 @@ const ProfileDropdown = (props) => {
             // logout({ returnTo: window.location.origin })
             logout({ returnTo: "https://owenkraft.github.io/instaclone/#/" })
         } else {
-            loginWithRedirect({ redirect_uri: "https://owenkraft.github.io/instaclone/#/" })
+            // loginWithRedirect()
+            loginWithRedirect({ redirect_uri: "https://owenkraft.github.io/instaclone/#/", response_type: "id_token"})
         }
     }
 
