@@ -17,7 +17,6 @@ const App = () => {
 
   useEffect(() => {
     getUserMetadata()
-    // .then(console.log("user metadata = ", userMetadata))
     .then(utilities.returnFirebaseUsers())
   },[user])
 
@@ -47,10 +46,8 @@ const App = () => {
       return metadataResponse.json();
     })
     .then(response => {
-      // setUserMetadata(response, console.log("user metadata = ", response.user_metadata))
       setUserMetadata(response)
     })
-    // .then(console.log(userMetadata))
     .catch(e => {
       console.log(e.message)
     })
@@ -58,7 +55,6 @@ const App = () => {
 
   return (
     <div className="app">
-      {/* <HashRouter basename="/instaclone"> */}
       <HashRouter>
         <Switch>
           <Route 
@@ -78,26 +74,6 @@ const App = () => {
               </div>
             )}
           />
-          {/* <Route 
-            path="/new" exact
-            render={(props) => (
-              <div>
-                <Header
-                />
-                <SubmitPost 
-                />
-              </div>
-            )}
-          />
-          <Route 
-            path="/register" exact
-            render={(props) => (
-              <div>
-                <Register 
-                />
-              </div>
-            )}
-          /> */}
         </Switch>
       </HashRouter>
     </div>
