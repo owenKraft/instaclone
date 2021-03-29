@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import firebase from "firebase/app"
 import {Auth0Provider} from '@auth0/auth0-react'
+// import {useHistory} from 'react-router-dom'
 
 firebase.initializeApp({
   apiKey: "AIzaSyAlDTL26DWfRRNfNqQH4bYY5kmf-DID6A4",
@@ -19,8 +20,8 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-koqpz026.us.auth0.com"
       clientId="6I521eyL6oLif8nNpjGWPf3GXJS5JNNl"
-      // redirectUri={window.location.origin}
-      redirectUri={"https://owenkraft.github.io/instaclone/#/"}
+      // redirectUri={window.location.origin} + "/instaclone/`"
+      redirectUri="https://owenkraft.github.io/instaclone/#/"
       audience="https://dev-koqpz026.us.auth0.com/api/v2/"
       scope="read:current_user update:current_user_metadata"
     >
