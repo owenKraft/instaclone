@@ -74,6 +74,8 @@ const SubmitPost = (props) => {
         const emojiCheck = /\p{Emoji}/u.test(caption)
         const submitBtn = document.querySelector(".submit-new-post-btn")
 
+        console.log(url)
+
         if(url !== "" && (caption !== "" || emojiCheck)){
             submitBtn.classList.remove("disabled")
         } else if(url === "" || (caption === "" && !emojiCheck)){
