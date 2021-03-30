@@ -14,11 +14,9 @@ const SubmitPost = (props) => {
     picker.on('emoji', selection => {
         emoji = selection.emoji
 
-        let caption = document.getElementById("caption").innerText
-        caption += emoji
-        // document.getElementById("caption").innerText += emoji
+        document.getElementById("caption").innerText += emoji
 
-        const emojiCheck = /\p{Emoji}/u.test(caption)
+        const emojiCheck = /\p{Emoji}/u.test(document.getElementById("caption").innerText)
         const submitBtn = document.querySelector("#submit-new-post-btn")
         if(emojiCheck){
             submitBtn.classList.remove("disabled")
