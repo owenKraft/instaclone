@@ -3,7 +3,7 @@ import firebase from 'firebase'
 import placeholder from '../resources/placeholder-image.png'
 import EmojiIcon from '../resources/icons/emoji_icon.png'
 import { EmojiButton } from '@joeattardi/emoji-button'
-import VerifyingImage from './VerifyingImage'
+// import VerifyingImage from './VerifyingImage'
 
 const SubmitPost = (props) => {
     const [src,setSrc] = useState(placeholder)
@@ -36,12 +36,12 @@ const SubmitPost = (props) => {
         const url = document.getElementById("url").value
         let errorText = document.getElementById("url-error")
 
-        const verifyingImage = <VerifyingImage />
-        errorText.appendChild(<VerifyingImage />)
+        // const verifyingImage = <VerifyingImage />
+        // errorText.appendChild(<VerifyingImage />)
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
-            verifyingImage.remove()
+            // verifyingImage.remove()
 
             if(url === "") {
                 setSrc(placeholder)
@@ -65,11 +65,12 @@ const SubmitPost = (props) => {
     const handleTextInput = (e) => {
         const url = document.getElementById("url").value
         const caption = document.getElementById("caption").innerText
+        const emojiCheck = /\p{Emoji}/u.test(caption)
         const submitBtn = document.querySelector(".submit-new-post-btn")
 
-        if(url !== "" && caption !== ""){
+        if(url !== "" && (caption !== "" || emojiCheck)){
             submitBtn.classList.remove("disabled")
-        } else if(url === "" || caption === ""){
+        } else if(url === "" || (caption === "" && !emojiCheck)){
             submitBtn.classList.add("disabled")
         }
     }
@@ -85,14 +86,14 @@ const SubmitPost = (props) => {
 
             <div className="add-post-info">
                 <form>
-                    <input className="submit-new-post-input wrap" type="url" id="url" required onInput={(e) => handleURLInput(e)} placeholder="Image URL"/>
+                    <input className="submit-new-post-input wrap" type="url" id="url" required onInput={e => handleURLInput(e)} placeholder="Image URL"/>
                     <div id="url-error"></div>
 
-                    <div id="caption" className="submit-new-post-input wrap" placeholder="Add a caption..." onInput={(e) => handleTextInput(e)} contentEditable></div>
+                    <div id="caption" className="submit-new-post-input wrap" placeholder="Add a caption..." onInput={e => handleTextInput(e)} contentEditable></div>
                         
                     <div className="submit-new-post-div">
                         <input type="image" className="emoji-icon" src={EmojiIcon} alt="add-emoji" onClick={e => handleEmojiClick(e)} />
-                        <input className="submit-new-post-btn disabled" type="submit" onClick={(e) => submitPost(e)} />
+                        <input className="submit-new-post-btn disabled" type="submit" onClick={e => submitPost(e)} />
                     </div>
                     
                 </form>
