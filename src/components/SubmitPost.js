@@ -18,7 +18,7 @@ const SubmitPost = (props) => {
 
         const emojiCheck = /\p{Emoji}/u.test(document.getElementById("caption").innerText)
         const submitBtn = document.querySelector(".submit-new-post-btn")
-        if(emojiCheck){
+        if(emojiCheck && document.getElementById("url").value !== ""){
             submitBtn.classList.remove("disabled")
         }
     });
@@ -73,8 +73,6 @@ const SubmitPost = (props) => {
         const caption = document.getElementById("caption").innerText
         const emojiCheck = /\p{Emoji}/u.test(caption)
         const submitBtn = document.querySelector(".submit-new-post-btn")
-
-        console.log(url)
 
         if(url !== "" && (caption !== "" || emojiCheck)){
             submitBtn.classList.remove("disabled")
