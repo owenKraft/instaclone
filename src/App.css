@@ -482,8 +482,8 @@ button {
   justify-content: space-between;
 }
 
-/* .submit-new-post-btn, .add-username-btn { */
-.add-username-btn {
+#submit-new-post-btn, .add-username-btn {
+/* .add-username-btn { */
   color: #0095f6;
   font-weight: bold;
 }

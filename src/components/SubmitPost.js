@@ -14,7 +14,15 @@ const SubmitPost = (props) => {
     picker.on('emoji', selection => {
         emoji = selection.emoji
 
-        document.getElementById("caption").innerText += emoji
+        let caption = document.getElementById("caption").innerText
+        caption += emoji
+        // document.getElementById("caption").innerText += emoji
+
+        const emojiCheck = /\p{Emoji}/u.test(caption)
+        const submitBtn = document.querySelector("#submit-new-post-btn")
+        if(emojiCheck){
+            submitBtn.classList.remove("disabled")
+        }
     });
 
     const submitPost = (e) => {
@@ -66,7 +74,7 @@ const SubmitPost = (props) => {
         const url = document.getElementById("url").value
         const caption = document.getElementById("caption").innerText
         const emojiCheck = /\p{Emoji}/u.test(caption)
-        const submitBtn = document.querySelector(".submit-new-post-btn")
+        const submitBtn = document.querySelector("#submit-new-post-btn")
 
         if(url !== "" && (caption !== "" || emojiCheck)){
             submitBtn.classList.remove("disabled")
@@ -93,7 +101,7 @@ const SubmitPost = (props) => {
                         
                     <div className="submit-new-post-div">
                         <input type="image" className="emoji-icon" src={EmojiIcon} alt="add-emoji" onClick={e => handleEmojiClick(e)} />
-                        <input className="submit-new-post-btn disabled" type="submit" onClick={e => submitPost(e)} />
+                        <input id="submit-new-post-btn" className="submit-new-post-btn disabled" type="submit" onClick={e => submitPost(e)} />
                     </div>
                     
                 </form>
