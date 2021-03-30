@@ -37,7 +37,7 @@ const SubmitPost = (props) => {
         let errorText = document.getElementById("url-error")
 
         const verifyingImage = <VerifyingImage />
-        errorText.appendChild(verifyingImage)
+        errorText.appendChild(<VerifyingImage />)
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
