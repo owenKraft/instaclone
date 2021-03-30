@@ -48,7 +48,9 @@ const Body = (props) => {
     }
 
     if (isLoading) {
-        return <Loading />;
+        return <Loading 
+            size = {60}
+        />;
     } else {
         // console.log(props.userMetadata)
     }

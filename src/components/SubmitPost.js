@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import firebase from 'firebase'
 import placeholder from '../resources/placeholder-image.png'
 import EmojiIcon from '../resources/icons/emoji_icon.png'
-import { EmojiButton } from '@joeattardi/emoji-button';
+import { EmojiButton } from '@joeattardi/emoji-button'
+import VerifyingImage from './VerifyingImage'
 
 const SubmitPost = (props) => {
     const [src,setSrc] = useState(placeholder)
@@ -35,8 +36,13 @@ const SubmitPost = (props) => {
         const url = document.getElementById("url").value
         let errorText = document.getElementById("url-error")
 
+        const verifyingImage = <VerifyingImage />
+        errorText.appendChild(verifyingImage)
+
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
+            verifyingImage.remove()
+
             if(url === "") {
                 setSrc(placeholder)
                 errorText.innerText = ""
