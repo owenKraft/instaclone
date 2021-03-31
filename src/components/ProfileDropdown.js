@@ -43,7 +43,7 @@ const ProfileDropdown = (props) => {
                 />
             )}
 
-            <a href="">Report a bug</a>
+            <a className="report-bug" href="https://forms.gle/p1e9KqzMJYXqcLCR9" target="_blank" rel="noreferrer">Report a bug</a>
             <button onClick={() => handleLoginClick()}>{loginText}</button>
         </div>
         )

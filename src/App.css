@@ -140,6 +140,10 @@ button {
   border-bottom: 1px solid lightgray;
 }
 
+.header-logo {
+  height: 2rem;
+}
+
 .header-container {
   display: flex;
   flex-wrap: wrap;
@@ -225,6 +229,11 @@ button {
   font-style: italic;
   font-size: .8rem;
   padding-top: 8px;
+}
+
+.report-bug {
+  padding: 8px;
+  font-size: .8rem;
 }
 
 .login-emoji {
