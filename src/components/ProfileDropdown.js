@@ -43,6 +43,7 @@ const ProfileDropdown = (props) => {
                 />
             )}
 
+            <a href="">Report a bug</a>
             <button onClick={() => handleLoginClick()}>{loginText}</button>
         </div>
         )

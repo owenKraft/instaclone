@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import Logo from '../resources/icons/logo.png'
+import Logo from '../resources/odingram.png'
 import Home from '../resources/icons/home_filled_icon.png'
 import Upload from '../resources/icons/upload_icon.png'
 import ProfileDropdown from './ProfileDropdown'
