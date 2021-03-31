@@ -62,7 +62,7 @@ const Header = (props) => {
         <div className="header-container">
             <Link to="/">
                 <div className="header-logo">
-                    <img src={Logo} alt="header logo"></img>
+                    <img src={Logo} alt="header logo" className="header-logo"></img>
                 </div>
             </Link>
 
