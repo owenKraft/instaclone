@@ -21,7 +21,7 @@ const App = () => {
   },[user])
 
   const getUserMetadata = async () => {
-    const domain = "dev-koqpz026.us.auth0.com";
+    const domain = "owenkraft.us.auth0.com";
 
     getAccessTokenSilently({
       audience: `https://${domain}/api/v2/`,

@@ -92,7 +92,7 @@ const Register = (props) => {
     
             var options = {
                 method: 'PATCH',
-                url: `https://dev-koqpz026.us.auth0.com/api/v2/users/${user.sub}`,
+                url: `https://owenkraft.us.auth0.com/api/v2/users/${user.sub}`,
                 headers: {authorization: `Bearer ${accessToken}`, 'content-type': 'application/json'},
                 data: {user_metadata: {
                     username: username,
