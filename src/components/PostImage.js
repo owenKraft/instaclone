@@ -1,8 +1,6 @@
 import React from 'react'
-import GokuFrieza from '../resources/testing/goku_frieza_post.jpg'
 
 const PostImage = (props) => {
-    // const image = GokuFrieza
     const image = props.postImage
 
     return (

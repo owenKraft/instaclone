@@ -12,8 +12,6 @@ const ProfileInfo = (props) => {
   useEffect(() => {
     if(props.userMetadata && props.userMetadata.hasOwnProperty("user_metadata") && props.userMetadata.user_metadata.hasOwnProperty("username")){
       setUsername(props.userMetadata.user_metadata.username)
-
-      // console.log(props.userMetadata)
     }
   },[props.userMetadata])
   
