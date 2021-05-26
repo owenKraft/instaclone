@@ -40,7 +40,7 @@ const SubmitPost = (props) => {
 
     async function checkForValidImage(){
         const url = document.getElementById("url").value
-        const urlField = document.getElementById("url")
+        const verifyingImage = document.getElementById("verifying-image-wrapper")
         let errorText = document.getElementById("url-error")
 
         // const verifyingImage = <VerifyingImage />
@@ -48,16 +48,14 @@ const SubmitPost = (props) => {
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
-            console.log(urlField)
-            urlField.appendChild(<VerifyingImage />)
+            console.log(verifyingImage)
+            verifyingImage.style.display="block"
             console.log("retreiving image")
             return response
         })
         .then(response => {
             // verifyingImage.remove()
-            if(urlField.childNodes[0]){
-                urlField.removeChild(urlField.childNodes[0])
-            }
+            verifyingImage.style.display="none"
 
             if(url === "") {
                 setSrc(placeholder)
@@ -103,6 +101,7 @@ const SubmitPost = (props) => {
             <div className="add-post-info">
                 <form>
                     <input className="submit-new-post-input wrap" type="url" id="url" required onInput={e => handleURLInput(e)} placeholder="Image URL"/>
+                    <div id="verifying-image-wrapper" style={{display: "none"}}><VerifyingImage /></div>
                     <div id="url-error"></div>
 
                     <div id="caption" className="submit-new-post-input wrap" placeholder="Add a caption..." onInput={e => handleTextInput(e)} contentEditable></div>
