@@ -43,18 +43,13 @@ const SubmitPost = (props) => {
         const verifyingImage = document.getElementById("verifying-image-wrapper")
         let errorText = document.getElementById("url-error")
 
-        // const verifyingImage = <VerifyingImage />
-        // errorText.appendChild(<VerifyingImage />)
-
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
-            console.log(verifyingImage)
-            verifyingImage.style.display="block"
             console.log("retreiving image")
+            verifyingImage.style.display="block"
             return response
         })
         .then(response => {
-            // verifyingImage.remove()
             verifyingImage.style.display="none"
 
             if(url === "") {
