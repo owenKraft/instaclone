@@ -48,6 +48,7 @@ const SubmitPost = (props) => {
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
+            console.log(urlField)
             urlField.appendChild(<VerifyingImage />)
             console.log("retreiving image")
             return response
