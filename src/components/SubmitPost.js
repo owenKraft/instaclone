@@ -3,7 +3,7 @@ import firebase from 'firebase'
 import placeholder from '../resources/placeholder-image.png'
 import EmojiIcon from '../resources/icons/emoji_icon.png'
 import { EmojiButton } from '@joeattardi/emoji-button'
-// import VerifyingImage from './VerifyingImage'
+import VerifyingImage from './VerifyingImage'
 
 const SubmitPost = (props) => {
     const [src,setSrc] = useState(placeholder)
@@ -47,7 +47,14 @@ const SubmitPost = (props) => {
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
+            errorText.appendChild(<VerifyingImage />)
+            return response
+        })
+        .then(response => {
             // verifyingImage.remove()
+            if(errorText.childNodes[0]){
+                errorText.removeChild(errorText.childNodes[0])
+            }
 
             if(url === "") {
                 setSrc(placeholder)
