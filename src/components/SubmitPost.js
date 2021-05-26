@@ -40,6 +40,7 @@ const SubmitPost = (props) => {
 
     async function checkForValidImage(){
         const url = document.getElementById("url").value
+        const urlField = document.getElementById("url")
         let errorText = document.getElementById("url-error")
 
         // const verifyingImage = <VerifyingImage />
@@ -47,13 +48,14 @@ const SubmitPost = (props) => {
 
         await fetch(props.corsProxy + url, { method: 'HEAD' })
         .then(response => {
-            errorText.appendChild(<VerifyingImage />)
+            urlField.appendChild(<VerifyingImage />)
+            console.log("retreiving image")
             return response
         })
         .then(response => {
             // verifyingImage.remove()
-            if(errorText.childNodes[0]){
-                errorText.removeChild(errorText.childNodes[0])
+            if(urlField.childNodes[0]){
+                urlField.removeChild(urlField.childNodes[0])
             }
 
             if(url === "") {
